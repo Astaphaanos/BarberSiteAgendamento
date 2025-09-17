@@ -1,0 +1,136 @@
+.navbar {
+  height: 14vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  img {
+    width: 160px;
+    padding: 20px;
+  }
+
+  .links-navbar {
+    list-style: none;
+    background-color: var(--cor-btn);
+    padding: 16px 28px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--cor-btn-hover);
+    }
+
+    a {
+      color: var(--cor-texto);
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Serviços section */
+
+.hero-section {
+  margin: 0 auto;
+  width: 1000px;
+  margin-top: 7rem;
+
+  .hero-info {
+    display: flex;
+    align-items: center;
+    width: 420px;
+
+    img {
+      width: 120px;
+      padding-right: 26px;
+    }
+
+    h1 {
+      font-size: 30px;
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+.accordion {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  padding: 20px 0;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px;
+  font-weight: bold;
+  text-align: left;
+  font-size: 18px;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-cinza);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+
+  .accordion-info {
+    h3 {
+      font-size: 22px;
+      padding: 10px 0;
+    }
+
+    p {
+      font-size: 16px;
+      padding: 8px 0;
+      color: var(--cor-texto-cinza);
+
+      i {
+        padding-right: 6px;
+        color: var(--cor-texto-cinza);
+      }
+    }
+  }
+
+  .reserve-div {
+    padding: 8px 0 30px 0;
+
+    .reserve-btn {
+      background: var(--cor-btn);
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+
+      i {
+        padding-right: 6px;
+      }
+
+      &:hover {
+        background: var(--cor-btn-hover);
+      }
+    }
+  }
+}
+
+.accordion-content.open {
+  max-height: 100%; 
+  padding: 15px;
+}

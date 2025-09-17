@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/agendamento.css">
+    <link rel="stylesheet" href="../css/variaveis.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>BaberSite - Agendamentos</title>
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <img src="../assets/image/logo.png" alt="">
+            <ul>
+                <li class="links-navbar">
+                    <a href="#">Meus agendamentos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+
+            <form action="" class="form-container" id="form-agendamento">
+                <label for="clientName">Nome: </label>
+                <input type="text" id="clientName" placeholder="Digite seu nome">
+
+                <label for="clientPhone">Telefone: </label>
+                <input type="text" id="clientPhone" placeholder="Digite seu telefone">
+
+                <label for="dataAgendamento">Data:</label>
+                <input type="text" id="dataAgendamento" placeholder="Selecione uma data">
+                
+                <label for="">Selecione o horário de início: </label>
+                <div id="horarios"></div>
+                <input type="hidden" name="horaSelecionada" id="horaSelecionada">
+                
+                <button type="submit">Agendar</button>
+            </form>
+            
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../../services/api.js"></script>
+</body>
+</html>
