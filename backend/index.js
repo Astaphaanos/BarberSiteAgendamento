@@ -18,7 +18,7 @@ app.use('/api', agendamentoRoutes)
 //Arquivos estáticos
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-app.use(express.static(path.join(__dirname, '../frontend')))
+app.use(express.static(path.join(__dirname, "../frontend/public/pages")))
 
 // Conexão com banco de dados
 db.sync().then(() => {

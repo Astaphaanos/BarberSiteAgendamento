@@ -92,6 +92,22 @@
         border-color: #2c7be5;
     }
   }
+
+  .btn-agendamento {
+    padding: 0.8rem;
+    background: #2c7be5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #1a5bb8;
+    }
+  }
 }
 
 /* Container dos barbeiros */
@@ -160,3 +176,4 @@
     }
   }
 }
+

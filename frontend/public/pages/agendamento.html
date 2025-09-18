@@ -24,7 +24,7 @@
     <main>
         <section class="container">
 
-            <form action="" class="form-container" id="form-agendamento">
+            <form class="form-container" id="form-agendamento">
                 <label for="clientName">Nome: </label>
                 <input type="text" id="clientName" placeholder="Digite seu nome">
 
@@ -36,16 +36,16 @@
                 
                 <label for="">Selecione o horário de início: </label>
                 <div id="horarios"></div>
-                <input type="hidden" name="horaSelecionada" id="horaSelecionada">
+                <input type="hidden" id="hora">
                 
-                <button type="submit">Agendar</button>
+                <button type="submit" class="btn-agendamento">Agendar</button>
             </form>
-            
+            <div id="mensagem"></div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="../js/calendar.js"></script>
     <script src="../../services/api.js"></script>
+    <script src="../js/calendar.js"></script>
 </body>
 </html>
