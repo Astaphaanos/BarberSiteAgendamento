@@ -26,26 +26,24 @@
 
             <form class="form-container" id="form-agendamento">
                 <label for="clientName">Nome: </label>
-                <input type="text" id="clientName" placeholder="Digite seu nome">
+                <input type="text" id="clientName" placeholder="Digite seu nome" required>
 
                 <label for="clientPhone">Telefone: </label>
-                <input type="text" id="clientPhone" placeholder="Digite seu telefone">
+                <input type="text" id="clientPhone" placeholder="Digite seu telefone" required>
 
                 <label for="dataAgendamento">Data:</label>
-                <input type="text" id="dataAgendamento" placeholder="Selecione uma data">
-                
-                <label for="">Selecione o horário de início: </label>
+                <input type="text" id="dataAgendamento" placeholder="Selecione uma data" required>
+
+                <label for="hora">Selecione o horário de início: </label>
                 <div id="horarios"></div>
                 <input type="hidden" id="hora">
                 
                 <button type="submit" class="btn-agendamento">Agendar</button>
             </form>
-            <div id="mensagem"></div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="../../services/api.js"></script>
-    <script src="../js/calendar.js"></script>
+    <script src="../js/agendamento.js" type="module" defer></script>
 </body>
 </html>
