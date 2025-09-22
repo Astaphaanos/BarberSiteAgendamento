@@ -15,7 +15,7 @@
             <img src="../assets/image/logo.png" alt="">
             <ul>
                 <li class="links-navbar">
-                    <a href="#">Meus agendamentos</a>
+                    <a href="./meus-agendamentos.html">Meus agendamentos</a>
                 </li>
             </ul>
         </nav>
@@ -23,13 +23,20 @@
 
     <main>
         <section class="container">
-
             <form class="form-container" id="form-agendamento">
+                <a href="./home.html">Voltar</a>
+                
                 <label for="clientName">Nome: </label>
                 <input type="text" id="clientName" placeholder="Digite seu nome" required>
 
                 <label for="clientPhone">Telefone: </label>
-                <input type="text" id="clientPhone" placeholder="Digite seu telefone" required>
+                <input 
+                type="text" 
+                id="clientPhone" 
+                maxlength="15"
+                placeholder="(00) 00000-0000" 
+                required
+                >
 
                 <label for="dataAgendamento">Data:</label>
                 <input type="text" id="dataAgendamento" placeholder="Selecione uma data" required>
@@ -44,6 +51,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/vanilla-masker/build/vanilla-masker.min.js"></script>
     <script src="../js/agendamento.js" type="module" defer></script>
+    <script src="../js/mask-telefone.js"></script>
 </body>
 </html>

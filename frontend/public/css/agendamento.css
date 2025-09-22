@@ -74,6 +74,15 @@
   flex-direction: column;
   gap: 1.2rem;
 
+  a {
+    text-align: right;
+    color: #333;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
   label {
     font-weight: bold;
     margin-bottom: 0.3rem;

@@ -24,7 +24,7 @@ class AgendamentoController {
 
         try {
             const agendamentos = await Agendamento.findAll({where: {data: data}})
-            const horariosOcupados = agendamentos.map(a => a.hora)
+            const horariosOcupados = agendamentos.map(a => a.time)
             return res.json(horariosOcupados)
         } catch {
             return res.status(500).json({ error: 'Erro ao buscar horários' })

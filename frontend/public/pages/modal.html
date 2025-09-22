@@ -1,0 +1,27 @@
+
+<link rel="stylesheet" href="../css/modal.css">
+<div id="modal" class="modal">
+    <div class="modal-container">
+        <span id="closeModal" class="close">&times;</span>
+        <h3>Confirme o seu número</h3>
+        <p>Por favor, escreve o número do celular usado para agendar o serviço</p>
+        
+        <form id="form-modal">
+            <label for="clientPhone">Celular (Whatsapp): </label>
+                <input 
+                type="text" 
+                id="clientPhone" 
+                maxlength="15"
+                placeholder="(00) 00000-0000" 
+                required
+                >
+
+                <button type="button" class="btn-modal-voltar">Voltar</button>
+                <button type="button" class="btn-modal-confirmar" id="confirmarTelefone">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/mask-telefone.js"></script>
+<script src="../js/modal.js"></script>
+<script src="https://unpkg.com/vanilla-masker/build/vanilla-masker.min.js"></script>

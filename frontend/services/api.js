@@ -10,7 +10,7 @@ export async function registrarAgendamento() {
 
         const dados = {
             clientName: document.getElementById('clientName').value,
-            clientPhone: document.getElementById('clientPhone').value,
+            clientPhone: document.getElementById('clientPhone').value.replace(/\D/g, ""),
             data: formatarDataParaBackend(document.getElementById('dataAgendamento').value),
             time: document.getElementById('hora').value
         }
@@ -26,7 +26,7 @@ export async function registrarAgendamento() {
             if(res.ok){
                 alert('✅ Agendamento criado com sucesso')
                 console.log(result)
-                window.location.href = "/pages/meus-agendamentos.html"
+                window.location.href = "../public/pages/meus-agendamentos.html"
             } else {
                 alert('⚠️ Erro', + result.error);
             }

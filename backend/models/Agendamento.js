@@ -15,8 +15,8 @@ const Agendamento = db.define('Agendamento', {
         allowNull: false
     },
 
-    clientName: {
-        type: DataTypes.STRING(255),
+    clientPhone: {
+        type: DataTypes.STRING(11),
         allowNull: false
     },
 
