@@ -1,26 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-    const confirmarTelefone = document.getElementById('confirmarTelefone');
+import { buscarTelefone } from "../../services/api.js";
 
-    document.getElementById('meusAgendamentos').addEventListener('click', () => {
-        modal.classList.add('show')
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  // Coloque todo o seu código do modal aqui dentro
+  const modal = document.getElementById("modal");
+  const telefoneInput = document.getElementById("clientPhoneModal");
+  const btnConfirmarTelefone = document.getElementById("btnConfirmarTelefone");
+  const btnCloseModal = document.getElementById("btnCloseModal");
+  const btnMeusAgendamentos = document.getElementById("btnMeusAgendamentos");
 
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('show')
-    })
+  // Verifique se o botão existe antes de adicionar o listener
 
-    confirmarTelefone.addEventListener('click', (e) => {
-        e.preventDefault();
+  btnMeusAgendamentos.addEventListener("click", () => {
+    modal.classList.add("show");
+  });
 
-        const telefone = document.getElementById('clientPhone').value.replace(/\D/g, "");
+  btnCloseModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+    telefoneInput.value = "";
+  });
 
-        if(!telefone) {
-            alert('Digite um número válido')
-            return
-        }
-        
-        modal.classList.remove('show')
-    })
-})
+  btnConfirmarTelefone.addEventListener("click", async () => {
+    const telefone = telefoneInput.value.replace(/\D/g, "");
+
+    if(!telefone) {
+      alert("Digite um número válido");
+      return;
+    }
+
+    try {
+      const resultado = await buscarTelefone(telefone);
+
+      if (resultado && resultado.length > 0) {
+        window.location.href = "../pages/meus-agendamentos.html";
+      } else {
+        alert("Nenhum agendamento encontrado neste número.");
+      }
+
+      modal.classList.remove("show");
+      telefoneInput.value = "";
+    } catch (e) {
+      alert("Erro ao buscar agendamentos. Tente novamente mais tarde!");
+      console.error(e);
+    }
+  });
+});

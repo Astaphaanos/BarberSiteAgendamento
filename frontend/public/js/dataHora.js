@@ -1,5 +1,6 @@
-import { registrarAgendamento, buscarHorarios } from "../../services/api.js";
+import { buscarHorarios } from "../../services/api.js";
 
+// Calendário flatpickr
 flatpickr("#dataAgendamento", {
   dateFormat: "d/m/Y", 
   minDate: "today",  
@@ -8,11 +9,7 @@ flatpickr("#dataAgendamento", {
   }
 });
 
-export function formatarDataParaBackend(data) {
-  const [dia, mes, ano] = data.split('/');
-  return `${ano}-${mes}-${dia}`;
-}
- 
+// Renderizar a hora quando selecionar a data
 async function renderizarHorarios(data) {
     const horariosDiv = document.getElementById('horarios');
     if (!horariosDiv) return;
@@ -41,6 +38,7 @@ async function renderizarHorarios(data) {
     });
 }
 
+// Selecionar a hora e armazenar no input que está hidden
 function selecionarHora(hora) {
     const horaInput = document.getElementById('hora');
     if (horaInput) {
@@ -53,6 +51,3 @@ const dataInput = document.getElementById('dataAgendamento');
 if (dataInput && dataInput.value) {
     renderizarHorarios(dataInput.value);
 }
-
-// Inicializa o form
-registrarAgendamento();

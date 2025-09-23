@@ -15,7 +15,7 @@
             <img src="../assets/image/logo.png" alt="">
             <ul>
                 <li class="links-navbar">
-                    <button class="btn-navbar" id="meusAgendamentos" type="button">Meus agendamentos</button>
+                    <button class="btn-navbar" id="btnMeusAgendamentos" type="button">Meus agendamentos</button>
                 </li>
             </ul>
         </nav>
@@ -40,16 +40,15 @@
         <div class="modal-container">
             <div class="modal-header">
                 <h3>Confirme o seu número</h3>
-                <span id="closeModal" class="close">&times;</span>
             </div>
             
             <div class="modal-body">
                 <p>Por favor, escreve o número do celular usado para agendar o serviço</p>
-                <form id="form-modal" class="form-modal">
-                    <label for="clientPhone">Celular (Whatsapp): </label>
+                <form id="form-agendamento" class="form-modal">
+                    <label for="clientPhoneModal">Celular (Whatsapp): </label>
                     <input
                         type="text"
-                        id="clientPhone"
+                        id="clientPhoneModal"
                         maxlength="15"
                         placeholder="(00) 00000-0000"
                         required>
@@ -57,16 +56,17 @@
             </div>
                 
                 <div class="modal-footer">
-                    <button type="button" class="btn-modal-voltar">Voltar</button>
-                    <button type="button" class="btn-modal-confirmar" id="confirmarTelefone">Confirmar</button>
+                    <button type="button" class="btn-modal-voltar" id="btnCloseModal">Voltar</button>
+                    <button type="button" class="btn-modal-confirmar" id="btnConfirmarTelefone">Confirmar</button>
                 </div>
         </div>
     </div>
 
     <script src="../js/mask-telefone.js"></script>
-    <script src="../js/modal.js"></script>
     <script src="https://unpkg.com/vanilla-masker/build/vanilla-masker.min.js"></script>
-    <script src="../../services/api.js"></script>
+
     <script src="../js/accordion.js"></script>
+
+    <script type="module" src="../js/modal.js"></script>
 </body>
 </html>
