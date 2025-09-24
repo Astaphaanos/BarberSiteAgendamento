@@ -15,7 +15,7 @@
             <img src="../assets/image/logo.png" alt="">
             <ul>
                 <li class="links-navbar">
-                    <a href="./meus-agendamentos.html">Meus agendamentos</a>
+                    <a href="./home.html">Serviços</a>
                 </li>
             </ul>
         </nav>
@@ -38,6 +38,8 @@
                 required
                 >
 
+                <input type="hidden" name="service" id="serviceInput">
+                
                 <label for="dataAgendamento">Data:</label>
                 <input type="text" id="dataAgendamento" placeholder="Selecione uma data" required>
 
@@ -54,6 +56,7 @@
     <script src="https://unpkg.com/vanilla-masker/build/vanilla-masker.min.js"></script>
     <script src="../js/mask-telefone.js"></script>
 
+    <script type="module" src="../js/accordion.js"></script>
     <script src="../js/dataHora.js" type="module"></script>
     <script type="module" src="../js/registrarAgendamento.js"></script>
 </body>

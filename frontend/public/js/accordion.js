@@ -37,38 +37,48 @@ const categories = [
   },
 ]
 
-const accordion = document.getElementById('accordion')
+document.addEventListener('DOMContentLoaded', () => {
+    const accordion = document.getElementById('accordion');
 
-
-accordion.innerHTML = categories.map(category => `
-  <div class="accordion-item">
-    <button class="accordion-header">${category.name}</button>
-    <div class="accordion-content">
-      ${category.services.map(s => `
-        <div class="accordion-info">
-            <h3> ${s.name}</h3>
-            <p>${s.description}</p>
-            <p><i class="fa fa-clock"></i>${s.minutes}</p>
-            <p><i class="fa fa-dollar-sign"></i> a partir de R$ ${s.price.toFixed(2).replace('.', ',')}</p>
+    // Monta o accordion dinamicamente
+    accordion.innerHTML = categories.map(category => `
+        <div class="accordion-item">
+            <button class="accordion-header">${category.name}</button>
+            <div class="accordion-content">
+            ${category.services.map(s => `
+                <div class="accordion-info">
+                    <h3>${s.name}</h3>
+                    <p>${s.description}</p>
+                    <p><i class="fa fa-clock"></i>${s.minutes}</p>
+                    <p><i class="fa fa-dollar-sign"></i> a partir de R$ ${s.price.toFixed(2).replace('.', ',')}</p>
+                </div>
+                <div class="reserve-div" data-service="${s.name}">
+                    <button class="reserve-btn" type="button">
+                        <i class="fa fa-calendar-check"></i> Reservar
+                    </button>
+                </div>
+            `).join('')}
+            </div>
         </div>
+    `).join('');
 
-        <div class="reserve-div">
-            <a href="agendamento.html" class="reserve-btn">
-            <i class="fa fa-calendar-check"></i> 
-            Reservar
-            </a>
-        </div>
-        `).join("")}
-    </div>
-  </div>
-`).join("");
+    // Accordion toggle
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            header.nextElementSibling.classList.toggle('open');
+        });
+    });
 
-// Lógica do accordion
-const headers = document.querySelectorAll('.accordion-header')
+    // Event delegation para os botões reservar
+    accordion.addEventListener('click', (e) => {
+        const btn = e.target.closest('.reserve-btn');
+        if (!btn) return;
 
-headers.forEach(header => {
-    header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('open')
-    })
-})
+        const serviceName = btn.parentElement.dataset.service;
+        
+        window.location.href = `../pages/agendamento.html?service=${encodeURIComponent(serviceName)}`;
+    });
+});
+
+
+

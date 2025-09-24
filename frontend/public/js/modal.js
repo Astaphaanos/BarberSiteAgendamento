@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnConfirmarTelefone.addEventListener("click", async () => {
     const telefone = telefoneInput.value.replace(/\D/g, "");
+    if(telefone.length !== 11) {alert('Número inválido'); return}
 
     if(!telefone) {
       alert("Digite um número válido");
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       modal.classList.remove("show");
       telefoneInput.value = "";
+      window.location.href = `../pages/meus-agendamentos.html?phone=${encodeURIComponent(telefone)}`;
     } catch (e) {
       alert("Erro ao buscar agendamentos. Tente novamente mais tarde!");
       console.error(e);

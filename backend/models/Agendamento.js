@@ -20,6 +20,11 @@ const Agendamento = db.define('Agendamento', {
         allowNull: false
     },
 
+    service: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+
     data: {
         type: DataTypes.DATEONLY,
         allowNull: false

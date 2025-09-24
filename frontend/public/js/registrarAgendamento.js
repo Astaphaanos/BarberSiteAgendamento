@@ -2,8 +2,15 @@ import { registrarAgendamento } from '../../services/api.js'
 import { formatarDataParaBackend } from '../js/utils.js'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form-agendamento')
+    const params = new URLSearchParams(window.location.search);
+    const serviceFromURL = params.get('service');
+    const serviceInput = document.getElementById('serviceInput');
+    if (serviceFromURL) {
+        serviceInput.value = serviceFromURL;
+    }
 
+    const form = document.getElementById('form-agendamento')
+    
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault()
@@ -11,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dados = {
                 clientName: document.getElementById('clientName').value,
                 clientPhone: document.getElementById('clientPhone').value.replace(/\D/g, ""),
+                service: document.getElementById('serviceInput').value,
                 data: formatarDataParaBackend(document.getElementById('dataAgendamento').value),
                 time: document.getElementById('hora').value
             }
@@ -21,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (result && result.id) { // Assumindo que o ID é retornado
                     alert('✅ Agendamento criado com sucesso')
                     console.log(result)
-                    window.location.href = "../public/pages/meus-agendamentos.html"
+                    window.location.href = "../pages/meus-agendamentos.html"
                 } else {
                     alert(`⚠️ Erro ${result.error || 'desconhecido'}`)
                 }

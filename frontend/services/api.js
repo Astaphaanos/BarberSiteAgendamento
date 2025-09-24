@@ -2,6 +2,7 @@ import { formatarDataParaBackend } from '../public/js/utils.js';
 
 const baseURL = 'http://localhost:3000'
 
+//* Create dos dados dos agendamentos
 export async function registrarAgendamento(dados) {
     try {
         const res = await fetch(`${baseURL}/api/agendamentos`, {
@@ -18,12 +19,14 @@ export async function registrarAgendamento(dados) {
 
 }
 
+//* Buscando horarios 
 export async function buscarHorarios(data) {
     const dataFormatada = formatarDataParaBackend(data)
     const res = await fetch(`${baseURL}/api/agendamentos?data=${dataFormatada}`)
     return res.json()
 }   
 
+//* Buscar agendamentos usando o telefone registrado
 export async function buscarTelefone(telefone) {
      try {
         const res = await fetch(`${baseURL}/api/buscartelefone`, {
@@ -41,4 +44,12 @@ export async function buscarTelefone(telefone) {
         console.log('Erro ao buscar telefone na API', e)
         throw e;
     } 
+}
+
+//* Pegar agendamento e mostrar no meus agendamentos
+export async function pegarAgendamento(telefone) {
+    // passando o telefone pela url
+    const res = await fetch(`${baseURL}/api/agendamentos?clientPhone=${encodeURIComponent(telefone)}`) 
+    if(!res.ok) throw new Error('Erro na API');
+    return await res.json()
 }

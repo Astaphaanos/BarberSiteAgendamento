@@ -5,14 +5,14 @@ class AgendamentoController {
     
     //* Criar agendamento
     static async createAgendamento(req,res) {
-        const {clientName, clientPhone, data, time} = req.body
+        const {clientName, clientPhone, data, time, service} = req.body
 
-        if(!clientName || !clientPhone || !data || !time) {
+        if(!clientName || !clientPhone || !data || !time || !service) {
             return res.status(400).json({error: 'Preencha todos os campos'})
         }
 
         try {
-            const novoAgendamento = await Agendamento.create({clientName, clientPhone, data, time})
+            const novoAgendamento = await Agendamento.create({clientName, clientPhone, data, time, service})
             return res.status(201).json(novoAgendamento)
         }catch(err) {
             return res.status(500).json({error: 'Erro ao criar agendamento'})
