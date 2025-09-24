@@ -45,11 +45,3 @@ export async function buscarTelefone(telefone) {
         throw e;
     } 
 }
-
-//* Pegar agendamento e mostrar no meus agendamentos
-export async function pegarAgendamento(telefone) {
-    // passando o telefone pela url
-    const res = await fetch(`${baseURL}/api/agendamentos?clientPhone=${encodeURIComponent(telefone)}`) 
-    if(!res.ok) throw new Error('Erro na API');
-    return await res.json()
-}
