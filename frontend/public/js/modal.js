@@ -32,9 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const resultado = await buscarTelefone(telefone);
 
       if (resultado && resultado.length > 0) {
+        localStorage.setItem('clientPhone', telefone)
         window.location.href = "../pages/meus-agendamentos.html";
       } else {
         alert("Nenhum agendamento encontrado neste número.");
+        return;
       }
 
       modal.classList.remove("show");

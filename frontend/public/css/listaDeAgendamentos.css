@@ -1,0 +1,107 @@
+.navbar {
+  height: 14vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  img {
+    width: 160px;
+    padding: 20px;
+  }
+
+  .links-navbar {
+    list-style: none;
+    background-color: var(--cor-btn);
+    padding: 16px 28px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--cor-btn-hover);
+    }
+
+    a {
+      color: var(--cor-texto);
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+/** Agendamentos dos clientes */
+.lista-container {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem;
+  margin: 0 auto;
+  height: auto;
+
+  .lista-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+
+    .btn-agendar{
+      list-style: none;
+      background-color: var(--cor-btn);
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--cor-texto);
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+  
+      &:hover {
+        background-color: var(--cor-btn-hover);
+      }
+    }
+    
+    h2 {
+      padding: 20px 60px 20px 0;
+      font-size: 20px;
+    }
+  }
+}
+
+/** Card dos informações dos agendamentos*/ 
+.agendamento-card {
+  border: 1px solid #0000003a;
+  padding: 20px;
+  width: 900px;
+  border-radius: 8px;
+  border-left: 6px solid green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .agendamento-info {
+    display: flex;
+    flex-direction: column;
+    
+      h4 {
+      padding: 6px 0;
+      font-weight: 600;
+    }
+
+    p {
+      padding: 4px 0;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+  }
+
+  .status {
+    background-color: green;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+  }
+}

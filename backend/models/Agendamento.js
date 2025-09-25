@@ -25,6 +25,11 @@ const Agendamento = db.define('Agendamento', {
         allowNull: false
     },
 
+    price: {
+        type: DataTypes.NUMBER,
+        allowNull: false
+    },
+
     data: {
         type: DataTypes.DATEONLY,
         allowNull: false

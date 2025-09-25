@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><i class="fa fa-clock"></i>${s.minutes}</p>
                     <p><i class="fa fa-dollar-sign"></i> a partir de R$ ${s.price.toFixed(2).replace('.', ',')}</p>
                 </div>
-                <div class="reserve-div" data-service="${s.name}">
+                <div class="reserve-div" data-service="${s.name}" data-price="${s.price}">
                     <button class="reserve-btn" type="button">
                         <i class="fa fa-calendar-check"></i> Reservar
                     </button>
@@ -75,8 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!btn) return;
 
         const serviceName = btn.parentElement.dataset.service;
+        const servicePrice = btn.parentElement.dataset.price;
         
-        window.location.href = `../pages/agendamento.html?service=${encodeURIComponent(serviceName)}`;
+        window.location.href = `../pages/agendamento.html?service=${encodeURIComponent(serviceName)}&price=${servicePrice}`;
     });
 });
 

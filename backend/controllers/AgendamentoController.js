@@ -5,14 +5,14 @@ class AgendamentoController {
     
     //* Criar agendamento
     static async createAgendamento(req,res) {
-        const {clientName, clientPhone, data, time, service} = req.body
+        const {clientName, clientPhone, data, time, service, price} = req.body
 
-        if(!clientName || !clientPhone || !data || !time || !service) {
+        if(!clientName || !clientPhone || !data || !time || !service ||!price){
             return res.status(400).json({error: 'Preencha todos os campos'})
         }
 
         try {
-            const novoAgendamento = await Agendamento.create({clientName, clientPhone, data, time, service})
+            const novoAgendamento = await Agendamento.create({clientName, clientPhone, data, time, service, price})
             return res.status(201).json(novoAgendamento)
         }catch(err) {
             return res.status(500).json({error: 'Erro ao criar agendamento'})
@@ -43,6 +43,18 @@ class AgendamentoController {
         } catch(e) {
             return res.status(404).json({error: 'Erro ao buscar telefone'})
         }
+    }
+
+    //* Pegar os dados pelo número de telefone e mostrar no front
+    static async agendamentoCliente(req,res) {
+        const {clientPhone} = req.query
+
+        if(!clientPhone) {
+            return res.status(400).json({error: 'Telefone não informado'})
+        }
+
+        const agendamentos = await Agendamento.findAll({where: {clientPhone: clientPhone}})
+        res.json(agendamentos)
     }
 }
 
