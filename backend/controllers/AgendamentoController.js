@@ -56,6 +56,22 @@ class AgendamentoController {
         const agendamentos = await Agendamento.findAll({where: {clientPhone: clientPhone}})
         res.json(agendamentos)
     }
+
+    //* Deletar agendamento
+    static async agendamentoDeletar(req,res) {
+        const {id} = req.params
+
+        if(!id) {
+            return res.status(400).json({error: 'id não informado'})
+        }
+
+        try {
+            const deletar = await Agendamento.destroy({where: {id: id}})
+            res.json(deletar)
+        } catch(err) {
+            return res.status(500).json({ error: "Erro ao deletar agendamento" });
+        }
+    }
 }
 
 

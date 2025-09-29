@@ -1,3 +1,4 @@
+import { deletarAgendamento } from "../../services/api.js";
 
 document.addEventListener('DOMContentLoaded', async() => {
     const telefone = localStorage.getItem('clientPhone');
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     agendamento.forEach(a => {
         const card = document.createElement('div');
         card.className = 'agendamento-card';
+        card.id = `agendamento-${a.id}`;
         card.innerHTML = `
         <div class="agendamento-info">
             <h4>${a.service}</h4>
@@ -21,13 +23,32 @@ document.addEventListener('DOMContentLoaded', async() => {
             </p>
         </div>
 
-        <div class="status">
-            <p>Agendado</p>
+        <div class="lista-status-btn">
+            <div class="status-btn">
+                <p>Agendado</p>
+            </div>
+
+            <div class="delete-btn">
+                <button id="btn-excluir-${a.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
         </div>
         `;
         container.appendChild(card);
+        btnDeletarAgendamento(a.id)
     });
 })
+
+function btnDeletarAgendamento(id) {
+    const btn = document.getElementById(`btn-excluir-${id}`)
+
+    if(btn) {
+            btn.addEventListener('click', () => {
+            deletarAgendamento(id)
+        })
+    }
+}
 
 function formataData(dataString) {
     if(!dataString) return '';

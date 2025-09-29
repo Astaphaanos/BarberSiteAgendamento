@@ -97,11 +97,29 @@
     }
   }
 
-  .status {
-    background-color: green;
-    color: #fff;
-    font-weight: 600;
-    padding: 10px;
-    border-radius: 8px;
+  .lista-status-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .status-btn {
+      background-color: green;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .delete-btn {
+      margin-left: 20px;
+      
+      button {
+        color: red;
+        border: none;
+        background: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
   }
 }
