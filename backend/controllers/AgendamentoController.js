@@ -69,6 +69,7 @@ class AgendamentoController {
             const deletar = await Agendamento.destroy({where: {id: id}})
             res.json(deletar)
         } catch(err) {
+            console.log(`Erro: ${err}`)
             return res.status(500).json({ error: "Erro ao deletar agendamento" });
         }
     }

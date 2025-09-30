@@ -29,6 +29,11 @@
             <form class="form-container" id="form-agendamento">
                 <a href="./home.html">Voltar</a>
                 
+                <input type="hidden" name="price" id="priceInput">
+                
+                <label for="service">Serviço escolhido: </label>
+                <input type="text" name="service" id="serviceInput" readonly>
+
                 <label for="clientName">Nome: </label>
                 <input type="text" id="clientName" placeholder="Digite seu nome" required>
 
@@ -41,9 +46,6 @@
                 required
                 >
 
-                <input type="hidden" name="service" id="serviceInput">
-                <input type="hidden" name="price" id="priceInput">
-                
                 <label for="dataAgendamento">Data:</label>
                 <input type="text" id="dataAgendamento" placeholder="Selecione uma data" required>
 
