@@ -40,7 +40,6 @@
   .hero-info {
     display: flex;
     align-items: center;
-    width: 420px;
 
     img {
       width: 120px;
@@ -49,6 +48,7 @@
 
     h1 {
       font-size: 30px;
+      width: 250px;
 
       span {
         font-size: 18px;
@@ -157,7 +157,7 @@
 .modal-container {
   background-color: #fff;
   width: 400px;
-  height: 340px;
+  height: 360px;
   padding: 20px;
   border-radius: 16px 16px;
 }
@@ -207,8 +207,7 @@
   justify-content: center;
 
   .btn-modal-voltar, .btn-modal-confirmar {
-    margin-top: 18px;
-    margin-left: 10px;
+    margin: 18px 10px;
     padding: 16px;
     width: 50%;
     cursor: pointer;
